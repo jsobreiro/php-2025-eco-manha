@@ -57,6 +57,7 @@
         echo        "<th>Nome</th>";
         echo        "<th>Telefone</th>";
         echo        "<th>E-mail</th>";
+        echo        "<th>Ações</th>";
         echo    "</tr>";
 
         while($cliente = mysqli_fetch_assoc($resultado)) {
@@ -66,6 +67,9 @@
             echo    "<td>" . $cliente['nome']  . "</td>";
             echo    "<td>" . $cliente['fone']  . "</td>";
             echo    "<td>" . $cliente['email'] . "</td>";
+            echo    "<td>";
+            echo        '<a href="excluir.php?id=' . $cliente['id'] . '">Excluir</a>';
+            echo    "</td>";
             echo "</tr>";
 
         }
