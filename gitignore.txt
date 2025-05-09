@@ -1,0 +1,4 @@
+# Using wildcards
+*.zip
+*.rar
+*.7zip
