@@ -23,6 +23,9 @@
 
     <?php
 
+        // incluir arquivo de validacoes
+        require_once 'validacoes.php';
+
         // incluir arquivo de conexão
         require_once 'conexao.php';
 
@@ -39,16 +42,7 @@
         $linhas_afetadas = mysqli_affected_rows($conn);
 
         // verificar numero de linhas afetadas:
-
-        // zero linhas afetdas = não há registros na tebela
-        if ($linhas_afetadas == 0) {
-            exit("<h3>Não há clientes para exibir</h3>");
-        }
-
-        // se numro de linhas afetadas for negativo, há erro no sql
-        if ($linhas_afetadas < 0) {
-            exit("<h3>Não foi possível realizar a consulta no banco</h3>");
-        }
+        verificar_select($linhas_afetadas);        
 
         // Passando pelas validações acima, prosseguimos:
         // enquanto houver registros armazenados em 'resultado', vamos
