@@ -68,7 +68,8 @@
             echo    "<td>" . $cliente['fone']  . "</td>";
             echo    "<td>" . $cliente['email'] . "</td>";
             echo    "<td>";
-            echo        '<a href="excluir.php?id=' . $cliente['id'] . '">Excluir</a>';
+            echo        '<a href="excluir.php?id=' . $cliente['id'] . '">Excluir</a> | ';
+            echo        '<a href="editar.php?id='  . $cliente['id'] . '">Editar</a>';
             echo    "</td>";
             echo "</tr>";
 

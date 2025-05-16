@@ -25,4 +25,10 @@ function verificar_select($linhas_afetadas) {
     return; // continue a executar o código (totalmente opcional)
 }
 
+function id_nao_enviado() {
+    if(!isset($_GET['id'])) {
+        exit("<h3>Id do cliente não especificado</h3>");
+    }
+}
+
 ?>
