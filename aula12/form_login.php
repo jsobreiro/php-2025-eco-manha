@@ -12,6 +12,6 @@
         <input type="password" name="senha" id="senha">
     </p>
 
-    <button type="submit">Logar</button>
+    <button type="submit" class="btn btn-success btn-sm">Logar</button>
 
 </form>

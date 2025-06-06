@@ -26,7 +26,7 @@
     $conn = conectar_banco();
 
     // criar query (consulta) à tabela tb_usuaris com base no usuário e senha informados
-    $query = "SELECT * FROM tb_usuarios WHERE usuario LIKE ? AND senha LIKE ?";
+    $query = "SELECT * FROM tb_usuarios WHERE usuario = ? AND senha = ?";
     
     // criar um statement (declaração) antes de executaros um SELECT
     $stmt = mysqli_prepare($conn, $query);
@@ -65,11 +65,20 @@
         exit;
     }
 
+    // sconfigurar variaveis para receber o retorno no comando sql executado
+    mysqli_stmt_bind_result($stmt, $login_id, $login_usuario, $login_senha, $login_email);
+
+    // salvar nas variaveis locais o resultado vindo deste select executado acima
+    mysqli_stmt_fetch($stmt);
+
+    echo "$login_id, $login_usuario, $login_senha, $login_email";
     // iniciar a sessão
-    session_start();
+   session_start();
     // registrar as variáveis de sessão
-    $_SESSION['usuario']    = $usuario;
-    $_SESSION['senha']      = $senha;
+    $_SESSION['id']         = $login_id;
+    $_SESSION['usuario']    = $login_usuario;
+    $_SESSION['senha']      = $login_senha;
+    $_SESSION['email']      = $login_email;
 
     // redirecionar para a página restrita
     header('location:restrita.php');
